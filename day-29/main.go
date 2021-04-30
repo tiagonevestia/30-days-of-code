@@ -19,8 +19,17 @@ import (
  */
 
 func bitwiseAnd(N int32, K int32) int32 {
+	var max int32 = 0
 	// Write your code here
-
+	for i := 1; int32(i) <= N; i++ {
+		for j := 1; j < i; j++ {
+			prev := int32(i & j)
+			if prev < K && prev > max {
+				max = prev
+			}
+		}
+	}
+	return max
 }
 
 func main() {
